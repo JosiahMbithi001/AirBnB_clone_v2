@@ -1,4 +1,4 @@
--- Creates A DataBase and a New User
+-- Creates A DataBase and a Test User
 
 CREATE DATABASE IF NOT EXISTS hbnb_test_db;
 CREATE USER IF NOT EXISTS 'hbnb_test'@'localhost' IDENTIFIED BY 'hbnb_test_pwd';
