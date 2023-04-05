@@ -1,8 +1,7 @@
-#!/usr/bin/python3
+#!/iusr/bin/python3
 """ database storage management """
 from sqlalchemy import create_engine
 import os
-from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from models.base_model import Base
 
@@ -46,7 +45,7 @@ class DBStorage():
         else:
             # Query for all types of objects
             results = []
-            for cls in [State, City]:
+            for cls in [State, City, User, Place, Review, Amenity]:
                 results.extend(DBStorage.__session.query(cls).all())
         # Add objects to dictionary
         for obj in results:
@@ -58,17 +57,12 @@ class DBStorage():
     def new(self, obj):
         """ add a new object to the session """
 
-        Session = sessionmaker(bind=DBStorage.__engine)
-        DBStorage.__session = Session()
         DBStorage.__session.add(obj)
 
     def save(self):
         """ saves an object to the database """
 
-        Session = sessionmaker(bind=DBStorage.__engine)
-        DBStorage.__session = Session()
         DBStorage.__session.commit()
-        DBStorage.__session.close()
 
     def delete(self, obj=None):
         """ deletes an object from current session """
