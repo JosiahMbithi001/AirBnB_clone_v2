@@ -1,8 +1,7 @@
-#!/usr/bin/python3
+#!/iusr/bin/python3
 """ database storage management """
 from sqlalchemy import create_engine
 import os
-from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from models.base_model import Base
 
