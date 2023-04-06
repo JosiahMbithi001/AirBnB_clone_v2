@@ -1,4 +1,4 @@
-#!/usr/bin/pythin3
+#!/usr/bin/python3
 """ a fabric that creates an archive file"""
 from fabric.api import local
 from datetime import datetime
