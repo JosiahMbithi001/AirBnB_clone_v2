@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-# This Script generates a .tgz comressed file of web_static folder
-# Returns Archive Path if not generated returns None
+""" 
+This Script generates a .tgz comressed file of web_static folder
+Returns Archive Path if not generated returns None
+"""
 
 from fabric.api import *
 from datetime import datetime
