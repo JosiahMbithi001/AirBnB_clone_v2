@@ -19,7 +19,7 @@ echo "<html>
 </html>"   | sudo tee /data/web_static/releases/test/index.html
 
 #Creates A Symbolic Link if link doesn't exist
-sudo ln -sf /data/web_static/releases/test /data/web_static/current
+sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 
 #Chages Ownership of /data/ folder to ubuntu User and Group
 sudo chown -R ubuntu:ubuntu /data/
