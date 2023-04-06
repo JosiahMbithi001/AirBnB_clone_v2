@@ -4,7 +4,7 @@ This Script generates a .tgz comressed file of web_static folder
 Returns Archive Path if not generated returns None
 """
 
-from fabric.api import *
+from fabric.api import local
 from datetime import datetime
 
 
@@ -13,7 +13,7 @@ def do_pack():
 
     # Creates Datetime Object
     time_now = datetime.now().strftime("%Y%m%d%H%M%S")
-    file_path = "/versions/web_static_{time_now}.tgz"
+    file_path = "versions/web_static_{}.tgz".format(time_now)
 
     """Makes Directory"""
     try:
