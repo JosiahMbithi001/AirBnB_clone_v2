@@ -1,9 +1,5 @@
-#!/usr/bin/python3
-""" 
-This Script generates a .tgz comressed file of web_static folder
-Returns Archive Path if not generated returns None
-"""
-
+#!/usr/bin/pythin3
+""" a fabric that creates an archive file"""
 from fabric.api import local
 from datetime import datetime
 
