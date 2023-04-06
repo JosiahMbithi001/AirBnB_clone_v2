@@ -1,37 +1,19 @@
 #!/usr/bin/python3
-<<<<<<< HEAD
 """ 
 This Script generates a .tgz comressed file of web_static folder
 Returns Archive Path if not generated returns None
 """
-=======
-<<<<<<< HEAD
-"""
-This Script generates a .tgz comressed file of web_static folder
-Returns Archive Path if not generated returns None
-"""
-=======
-# This Script generates a .tgz comressed file of web_static folder
-# Returns Archive Path if not generated returns None
->>>>>>> c9df4781e95a9e8918088de4e10c8f0ab2925e67
->>>>>>> 4b7ba43caccceb92be17bba2ab1694c92d891a64
 
-from fabric.api import local
+from fabric.api import *
 from datetime import datetime
 
 
 def do_pack():
     """This Method Compresses Files in web_static"""
 
-<<<<<<< HEAD
-	#Creates Datetime Object
-	time_now = datetime.now().strftime("%Y%m%d%H%M%S")
-	file_path = "versions/web_static_{}.tgz".format(time_now)
-=======
     # Creates Datetime Object
     time_now = datetime.now().strftime("%Y%m%d%H%M%S")
     file_path = "/versions/web_static_{time_now}.tgz"
->>>>>>> c9df4781e95a9e8918088de4e10c8f0ab2925e67
 
     """Makes Directory"""
     try:
