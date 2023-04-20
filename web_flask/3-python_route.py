@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This Script Returns C followe by A text to be put in the Path """
+"""This Script Returns Python followe by A text to be put in the Path """
 
 
 from flask import Flask
@@ -26,6 +26,19 @@ def c(text):
     """A Method that returns C and text"""
 
     return f'C {text.replace("_"," ")}'
+
+
+@app.route('/python', strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def python(text=None):
+    """
+    A Python Method that displays Python is Cool by Default
+    else returns Python +  passed in text
+    """
+    if text:
+        return "Python " + text.replace('_', ' ')
+    else:
+        return "Python is cool"
 
 
 if __name__ == "__main__":
