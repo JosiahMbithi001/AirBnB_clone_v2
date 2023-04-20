@@ -3,6 +3,7 @@
 (do_deploy) Deploysthe archive file to Web Servers
 (do_deploy_web_static) Compresses and Deploys it in the New Path
 """
+
 import os.path
 from fabric.api import local
 from datetime import datetime
