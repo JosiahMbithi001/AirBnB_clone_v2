@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This Script Renders A HTML Page if n is Number """
+"""This Script Renders A HTML Page stating if n is Even or Odd"""
 
 
 from flask import Flask
@@ -52,6 +52,15 @@ def number(n):
 def number_template(n):
     return render_template("5-number.html", n=n)
 
+@app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
+def even_or_odd(n):
+	"""States If number is even or Odd"""
+	if n % 2 == 0:
+		even_odd = "even"
+	else:
+		even_odd = "odd"
+
+	return render_template("6-number_odd_or_even.html", n=n, even_odd=even_odd)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
