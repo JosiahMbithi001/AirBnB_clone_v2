@@ -26,7 +26,7 @@ def hbnb():
 def c(text):
     """A Method that returns C and text"""
 
-    return f'C {text.replace("_"," ")}'
+    return 'C ' + text.replace("_", " ")
 
 
 @app.route('/python', strict_slashes=False)
@@ -45,7 +45,7 @@ def python(text=None):
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
     """A Method that returns n if n is an int"""
-    return f"{n} is a number"
+    return "{} is a number".format(n)
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)

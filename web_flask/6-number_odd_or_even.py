@@ -26,7 +26,7 @@ def hbnb():
 def c(text):
     """A Method that returns C and text"""
 
-    return f'C {text.replace("_"," ")}'
+    return 'C ' + text.replace("_", " ")
 
 
 @app.route('/python', strict_slashes=False)
@@ -45,22 +45,24 @@ def python(text=None):
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
     """A Method that returns n if n is an int"""
-    return f"{n} is a number"
+    return "{} is a number".format(n)
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def number_template(n):
     return render_template("5-number.html", n=n)
 
+
 @app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
 def even_or_odd(n):
-	"""States If number is even or Odd"""
-	if n % 2 == 0:
-		even_odd = "even"
-	else:
-		even_odd = "odd"
+    """States If number is even or Odd"""
+    if n % 2 == 0:
+        even_odd = "even"
+    else:
+        even_odd = "odd"
 
-	return render_template("6-number_odd_or_even.html", n=n, even_odd=even_odd)
+    return render_template("6-number_odd_or_even.html", n=n, even_odd=even_odd)
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)

@@ -25,7 +25,7 @@ def hbnb():
 def c(text):
     """A Method that returns C and text"""
 
-    return f'C {text.replace("_"," ")}'
+    return 'C ' + text.replace("_", " ")
 
 
 @app.route('/python', strict_slashes=False)
