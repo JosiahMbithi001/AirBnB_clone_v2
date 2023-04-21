@@ -20,8 +20,9 @@ class DBStorage():
     def __init__(self):
         """ initiliazes the class """
         DBStorage.__engine = create_engine(
-             f'mysql+mysqldb://{user}:{password}@{host}/{database}',
-             pool_pre_ping=True
+            'mysql+mysqldb://{}:{}@{}/{}'.format(user,
+                                                 password, host, database),
+            pool_pre_ping=True
         )
         hbnd_env = os.environ.get('HBNB_ENV')
         if (hbnd_env == "test"):
@@ -84,6 +85,10 @@ class DBStorage():
         # create the current database session
         session_factory = sessionmaker(
             bind=DBStorage.__engine,
-            expire_on_commit=False
+            expire_on_commit=True
         )
         DBStorage.__session = scoped_session(session_factory)
+
+        def close(self):
+            """Calls Current db Session"""
+            self.__session.close()
