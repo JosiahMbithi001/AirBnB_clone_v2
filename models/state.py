@@ -3,12 +3,13 @@
 from sqlalchemy import Column, String, DateTime, ForeignKey
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
+from models.city import City
 from os import getenv
 import models
 
 
 class State(BaseModel, Base):
-    """ State class """
+    """ State Class """
     __tablename__ = "states"
     name = Column(String(128), nullable=False)
 
@@ -20,7 +21,7 @@ class State(BaseModel, Base):
             """Return the list of City instances with
             state_id equals to the current State.id
             """
-            city_values = models.storage.all("City").values()
+            city_values = models.storage.all(City).values()
             city_list = []
             for city in city_values:
                 if city.state_id == self.id:

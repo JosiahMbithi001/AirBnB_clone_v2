@@ -52,7 +52,6 @@ class DBStorage():
         for obj in results:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
             objects[key] = obj
-        DBStorage.__session.close()
         return objects
 
     def new(self, obj):
