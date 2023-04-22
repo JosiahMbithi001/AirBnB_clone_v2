@@ -3,7 +3,7 @@
 """
 This Script renders  and displays States and
 Cities in a States if a State id is passed
-""" 
+"""
 
 from models import storage
 from models.state import State
@@ -19,13 +19,15 @@ def city_state():
     state = storage.all(State)
     return render_template("7-states_list.html", state=state)
 
+
 @app.route('/states/<id>', strict_slashes=False)
 def state_by_id():
-	"""Renders an HTML Page if a State.if is found"""
-	for state in storage.all(State).values():
-		if state.id == id:
-			return render_template('9-states.html', state=state, mode='id')
-		return render_template('9-states.html', state=state, mode='none')
+    """Renders an HTML Page if a State.if is found"""
+    for state in storage.all(State).values():
+        if state.id == id:
+            return render_template('9-states.html', state=state, mode='id')
+        return render_template('9-states.html', state=state, mode='none')
+
 
 @app.teardown_appcontext
 def clean(exception=None):
