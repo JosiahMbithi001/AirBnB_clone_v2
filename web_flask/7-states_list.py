@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""This Script renders  and dispalys states"""
+
+"""This Script renders  and displays states"""
+
 from models import storage
 from models.state import State
 from flask import Flask, render_template

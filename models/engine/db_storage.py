@@ -20,14 +20,14 @@ class DBStorage():
 
     def __init__(self):
         """ initiliazes the class """
-        DBStorage.__engine = create_engine(
+        self.__engine = create_engine(
             'mysql+mysqldb://{}:{}@{}/{}'.format(user,
                                                  password, host, database),
             pool_pre_ping=True
         )
         hbnd_env = os.environ.get('HBNB_ENV')
         if (hbnd_env == "test"):
-            Base.metadata.drop_all(DBStorage.__engine)
+            Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
         """ retrives all objects """
@@ -39,16 +39,16 @@ class DBStorage():
         from models.amenity import Amenity
         from models.review import Review
         Session = sessionmaker(bind=DBStorage.__engine)
-        DBStorage.__session = Session()
+        self.__session = Session()
         objects = {}
         if cls is not None:
             # Query for objects of a specific class
-            results = DBStorage.__session.query(cls).all()
+            results = self.__session.query(cls).all()
         else:
             # Query for all types of objects
             results = []
             for cls in [State, City, User, Place, Review, Amenity]:
-                results.extend(DBStorage.__session.query(cls).all())
+                results.extend(self.__session.query(cls).all())
         # Add objects to dictionary
         for obj in results:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
@@ -58,17 +58,17 @@ class DBStorage():
     def new(self, obj):
         """ add a new object to the session """
 
-        DBStorage.__session.add(obj)
+        self.__session.add(obj)
 
     def save(self):
         """ saves an object to the database """
 
-        DBStorage.__session.commit()
+        self.__session.commit()
 
     def delete(self, obj=None):
         """ deletes an object from current session """
         if (obj):
-            DBStorage.__session.delete(obj)
+            self.__session.delete(obj)
 
     def reload(self):
         from models.base_model import BaseModel
@@ -80,14 +80,14 @@ class DBStorage():
         from models.review import Review
 
         # create all tables in the database
-        Base.metadata.create_all(DBStorage.__engine)
+        Base.metadata.create_all(self.__engine)
 
         # create the current database session
         session_factory = sessionmaker(
-            bind=DBStorage.__engine,
+            bind=self.__engine,
             expire_on_commit=True
         )
-        DBStorage.__session = scoped_session(session_factory)
+        self.__session = scoped_session(session_factory)
 
         def close(self):
             """Calls Current db Session"""
