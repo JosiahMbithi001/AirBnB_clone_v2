@@ -1,9 +1,10 @@
-#!/iusr/bin/python3
+#!/usr/bin/python3
 """ database storage management """
 from sqlalchemy import create_engine
 import os
 from sqlalchemy.orm import sessionmaker, scoped_session
 from models.base_model import Base
+
 
 user = os.environ.get('HBNB_MYSQL_USER')
 password = os.environ.get('HBNB_MYSQL_PWD')
