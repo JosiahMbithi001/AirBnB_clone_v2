@@ -89,6 +89,6 @@ class DBStorage():
         )
         self.__session = scoped_session(session_factory)
 
-        def close(self):
-            """Calls Current db Session"""
-            self.__session.close()
+    def close(self):
+        """Calls Current db Session"""
+        self.__session.close()
