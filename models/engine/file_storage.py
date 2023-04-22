@@ -64,6 +64,6 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
-            def close(self):
-                """A Method for deserializing json File"""
-                self.reload()
+    def close(self):
+        """A Method for deserializing json File"""
+        self.reload()
