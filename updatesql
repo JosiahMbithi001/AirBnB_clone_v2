@@ -1,0 +1,5 @@
+Show create table cities;
+Show create table states;
+ALTER table states convert to CHARACTER SET utf8mb4;
+ALTER table cities convert to CHARACTER SET utf8mb4;
+ALTER table cities drop foreign key cities_ibfk_1;
